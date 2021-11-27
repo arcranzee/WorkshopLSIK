@@ -1,0 +1,23 @@
+library(tidyverse)
+
+data3.1 <- read.csv(file.choose(), sep=",")
+data3.2 <- read.csv(file.choose(), sep=",")
+
+#1
+#tanpa menggunakan linear model
+ggplot(data3.1, aes(pricepercent,sugarpercent,color=sugarpercent,size=sugarpercent)) + geom_point() + stat_smooth()
+#menggunakan linear model
+ggplot(data3.1, aes(pricepercent,sugarpercent,color=sugarpercent,size=sugarpercent)) + geom_point() + stat_smooth(method="lm")
+
+#2
+#kalau tidak diubah ke tipe data date, bisa langsung pakai syntax ini
+#tapi kelemahannya, semua tanggal menjadi sumbu x
+ggplot(data3.2, aes(DATE, IPG3113N, group = 1)) + geom_line()
+
+#ngubah tipe data ke tipe data date
+data3.2$DATE <- as.Date(data3.2$DATE)
+
+#tanpa menggunakan linear model
+ggplot(data3.2, aes(DATE, IPG3113N)) + geom_line() + stat_smooth()
+#menggunakan linear model
+ggplot(data3.2, aes(DATE, IPG3113N)) + geom_line() + stat_smooth(method="lm")
