@@ -2,7 +2,7 @@
 install.packages("tidyverse")
 install.packages("cluster")
 install.packages("factoextra")
-install.packages(“dplyr”)
+install.packages("dplyr")
 library(dplyr) #Manipulasi data
 library(tidyverse) #Manipulasi data
 library(cluster) #Algoritma clustering
